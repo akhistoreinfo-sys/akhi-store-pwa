@@ -87,14 +87,23 @@
   </div>
 
   <script>
-    if ("serviceWorker" in navigator) {
-      window.addEventListener("load", function () {
-        navigator.serviceWorker.register(
-          "./service-worker.js"
-        );
-      });
+  const BUSINESS_SUITE_URL =
+    "https://script.google.com/macros/s/AKfycbybv_QJeVVMQ4CK1jwP15PVgR8TDeI-VHVSDT6GS5WzvBMSTiLKb8oL_mNmxPp2f6Zn/exec";
+
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+      navigator.serviceWorker.register(
+        "./service-worker.js"
+      );
+    });
+  }
+
+  window.addEventListener("load", function () {
+    if (navigator.onLine) {
+      window.location.replace(BUSINESS_SUITE_URL);
     }
-  </script>
+  });
+</script>
 
 </body>
 </html>
