@@ -10,7 +10,7 @@
   "background_color": "#000050",
   "icons": [
     {
-      "src": "./icon-192.png",
+      "src": "./akhi-store-icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
