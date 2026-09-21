@@ -1,4 +1,4 @@
-const CACHE_NAME = "akhi-store-pwa-v1";
+const CACHE_NAME = "akhi-store-pwa-v2";
 
 const APP_SHELL = [
   "./",
@@ -36,10 +36,33 @@ self.addEventListener("fetch", event => {
     return;
   }
 
+  const request = event.request;
+
+  if (request.mode === "navigate") {
+    event.respondWith(
+      fetch(request)
+        .then(response => {
+          const responseCopy = response.clone();
+
+          caches.open(CACHE_NAME)
+            .then(cache => {
+              cache.put("./index.html", responseCopy);
+            });
+
+          return response;
+        })
+        .catch(() => {
+          return caches.match("./index.html");
+        })
+    );
+
+    return;
+  }
+
   event.respondWith(
-    caches.match(event.request)
+    caches.match(request)
       .then(cachedResponse => {
-        return cachedResponse || fetch(event.request);
+        return cachedResponse || fetch(request);
       })
   );
 });
