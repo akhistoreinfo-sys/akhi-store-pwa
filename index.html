@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>AKHI STORE</title>
+
+  <meta
+    name="theme-color"
+    content="#002361"
+  >
+
+  <link
+    rel="manifest"
+    href="./manifest.webmanifest"
+  >
+
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="192x192"
+    href="./akhi-store-icon-192.png"
+  >
+
+  <style>
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      background: #000050;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .launch-screen {
+      text-align: center;
+      color: #ffffff;
+    }
+
+    .app-icon {
+      width: 128px;
+      height: 128px;
+      border-radius: 28px;
+    }
+
+    .app-name {
+      margin-top: 18px;
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .status {
+      margin-top: 8px;
+      font-size: 14px;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="launch-screen">
+    <img
+      class="app-icon"
+      src="./akhi-store-icon-192.png"
+      alt="AKHI STORE"
+    >
+
+    <div class="app-name">
+      AKHI STORE
+    </div>
+
+    <div class="status">
+      Business Suite
+    </div>
+  </div>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.register(
+          "./service-worker.js"
+        );
+      });
+    }
+  </script>
+
+</body>
+</html>
